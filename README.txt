@@ -24,17 +24,17 @@ docker compose exec -w /var/www/html/project app_laravel_project php artisan mig
 
 [DB作成]
 ○テーブルの定義を行う
-php artisan make:model -m XXX
+docker compose exec -w /var/www/html/project php artisan make:model -m XXX
 →project/app/Models/XXX.php　が出来る
 →project/database/migrations/yyyy_mm_dd_XXXXXX_create_XXX_table.php　が出来る
 
 project/database/migrations/yyyy_mm_dd_XXXXXX_create_XXX_table.php　にカラムを記載する
 
 ○テーブル作成実行
-php artisan migrate
+docker compose exec -w /var/www/html/project php artisan migrate
 
 ○ダミーデータを作成する
-php artisan make:seeder XXXs
+docker compose exec -w /var/www/html/project php artisan make:seeder XXXs
 →project/database/seeders/XXXs.php　が出来る
 　ここのrun()にダミーデータを記載する(便利機能：モデルファクトリ)
 　use App\Models\XXX;　の記述が必要
@@ -45,23 +45,23 @@ project/database/seeders/DatabaseSeeder.phpn以下を追記する。
         ]);
 
 ○ダミーデータ作成実行
-php artisan db:seed
-php artisan db:seed --class=XXXSeeder
+docker compose exec -w /var/www/html/project php artisan db:seed
+docker compose exec -w /var/www/html/project php artisan db:seed --class=XXXSeeder
 →phpmyadmin見るとデータが増えている
 
 [コントローラ作成]
 ○初期関数あり
-php artisan make:controller XXXController
+docker compose exec -w /var/www/html/project php artisan make:controller XXXController
 
 ○DBと紐づけ
-php artisan make:controller XXXController --model=XXX --resource
+docker compose exec -w /var/www/html/project php artisan make:controller XXXController --model=XXX --resource
 
-○web.config修正
+○web.php修正
 use App\Http\Controllers\XXXController;
 Route::resource('XXX', XXXController::class);
 
 ○web.config修正うまくいっているか確認(ルート確認)
-php artisan route:list
+docker compose exec -w /var/www/html/project php artisan route:list
 
 [ubuntu設定]　※文字コードをutf-8にする
 # 1．パッケージ情報の更新
@@ -81,7 +81,4 @@ sudo dpkg-reconfigure tzdata
 
 # 6．日本語マニュアルのインストール
 sudo apt -y install manpages-ja manpages-ja-dev
-
-
-
 
