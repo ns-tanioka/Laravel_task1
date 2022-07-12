@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcometech');
 });
 
 Route::get('office_masters',[App\Http\Controllers\OfficeMasterController::class,'index']);
 Route::post('office_masters',[App\Http\Controllers\OfficeMasterController::class,'index']);
+
 Route::get('tran_tables',[App\Http\Controllers\TranTableController::class,'index']);
 Route::post('tran_tables',[App\Http\Controllers\TranTableController::class,'index']);
 
