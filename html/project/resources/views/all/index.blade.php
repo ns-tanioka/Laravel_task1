@@ -21,11 +21,11 @@
             <td>{{$item->tel}}</td>
             </tr>
             @endforeach
-
-    @elseif($form == 'Single' )
+            
         </tbody>
         </table>
 
+        @elseif($form == 'Single' )
         <!-- singleのとき -->
         <table border = "1">
         <thead>
