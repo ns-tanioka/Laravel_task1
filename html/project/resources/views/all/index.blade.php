@@ -9,7 +9,7 @@
     @if($form == 'All')
         <table border = "1">
         <thead>
-            <th>ID</th><th>名前</th><th>アドレス</th><th>tel</th>
+            <tr><th>ID</th><th>名前</th><th>アドレス</th><th>tel</th></tr>
         </thead>
         <tbody>
             
@@ -21,6 +21,7 @@
             <td>{{$item->tel}}</td>
             </tr>
             @endforeach
+
     @elseif($form == 'Single' )
         </tbody>
         </table>
@@ -28,7 +29,7 @@
         <!-- singleのとき -->
         <table border = "1">
         <thead>
-            <th>ID</th><th>名前</th><th>アドレス</th><th>tel</th>
+            <tr><th>ID</th><th>名前</th><th>アドレス</th><th>tel</th></tr>
         </thead>
         <tbody>
             
